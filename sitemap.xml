@@ -37,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/2020/04/17/Hexo-Theme-LiveMyLife/</loc>
-    
-    <lastmod>2020-08-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://l0ganc.github.io/404.html</loc>
     
     <lastmod>2020-08-16</lastmod>
@@ -59,27 +52,6 @@
   </url>
 
   
-  <url>
-    <loc>https://l0ganc.github.io/tags/Hexo/</loc>
-    <lastmod>2020-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2020-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://l0ganc.github.io/categories/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2020-09-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
 </urlset>
