@@ -102,6 +102,13 @@
   </url>
   
   <url>
+    <loc>https://l0ganc.github.io/tags/Test/</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l0ganc.github.io/tags/%E5%9B%BD%E5%BA%86%E8%8A%82/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
@@ -129,13 +136,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://l0ganc.github.io/tags/Test/</loc>
-    <lastmod>2020-10-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
@@ -146,14 +146,14 @@
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
+    <loc>https://l0ganc.github.io/categories/markdown/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/categories/markdown/</loc>
+    <loc>https://l0ganc.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
