@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://l0ganc.github.io/2020/10/14/LeetCode-32-Longest-Valid-Parentheses/</loc>
+    <lastmod>2020-10-15</lastmod>
+  </url>
+  <url>
     <loc>https://l0ganc.github.io/2020/10/04/%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%94%A8Markdown%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</loc>
     <lastmod>2020-10-05</lastmod>
   </url>
