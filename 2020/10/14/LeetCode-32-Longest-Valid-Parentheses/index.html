@@ -210,14 +210,14 @@
 
           
           <li>
-            <a href="/about/">About</a>
+            <a href="/archive/">Archives</a>
           </li>
           
           
 
           
           <li>
-            <a href="/archive/">Archives</a>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -343,7 +343,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">487</span> In Total
+              Words <span class="post-count">372</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -407,8 +407,86 @@
 <p>挺有意思的一道图，虽然标的是hard类型，仔细想想是不难的。 </p>
 <p>&nbsp;  </p>
 <h3 id="思路解析"><a href="#思路解析" class="headerlink" title="思路解析"></a>思路解析</h3><p>We can make use of stack while scanning the given string to check if the string scanned so far is valid, and also the length of the longest valid string. First, we need to push -1 onto the stack. For every ‘(‘ encountered, push its index onto the stack; For every ‘)’ encountered, pop the top element off the stack, which gives the length of the currently encountered valid string of parentheses. If while popping the element, the stack becomes empty, we push the current element’s index onto the stack. In this way, we keep on calculating the lengths of the valid substrings, and return the length of the longest valid string at the end. </p>
-<h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1:"></a>Method 1:</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="symbol">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> longestValidParentheses(String s) &#123;</span><br><span class="line">        <span class="comment">// 使用Stack来做，Time = O(n), Space = O(n)</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="literal">null</span> || s.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">int</span> res = <span class="number">0</span>;</span><br><span class="line">        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        stack.push(<span class="number">-1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</span><br><span class="line">                stack.push(i);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    stack.push(i);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res = Math.max(res, i - stack.peek());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">&amp;nbsp;  </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">### Method <span class="number">2</span>:</span><br><span class="line">We could also make use of two counters leftleft <span class="keyword">and</span> rightright. First, we start traversing the <span class="built_in">string</span> <span class="keyword">from</span> the left  towards the right <span class="keyword">and</span> <span class="keyword">for</span> every <span class="string">'('</span> encountered, we increment the leftleft counter <span class="keyword">and</span> <span class="keyword">for</span> every <span class="string">')'</span> encountered, we increment the rightright counter. Whenever leftleft becomes equal to rightright, we calculate the length of the current valid <span class="built_in">string</span> <span class="keyword">and</span> keep track of maximum length substring found so far. If rightright becomes greater than leftleft we reset leftleft <span class="keyword">and</span> rightright to <span class="number">0.</span>  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line"><span class="keyword">class</span> <span class="symbol">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> longestValidParentheses(String s) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="literal">null</span> || s.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> res = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// from left direction to right direction</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (left == right) &#123;</span><br><span class="line">                res = Math.max(res, <span class="number">2</span> * right);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (right &gt; left) &#123;</span><br><span class="line">                <span class="comment">// in this case, we can't form a valid parentheses, we need to reset left and righ to 0</span></span><br><span class="line">                left = <span class="number">0</span>;</span><br><span class="line">                right = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// reset left and right to 0;</span></span><br><span class="line">        left = <span class="number">0</span>;</span><br><span class="line">        right = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// from right to left, same as above</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (left == right) &#123;</span><br><span class="line">                res = Math.max(res, <span class="number">2</span> * left);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left &gt; right) &#123;</span><br><span class="line">                left = <span class="number">0</span>;</span><br><span class="line">                right = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>### Method 1:  
+class Solution {
+    public int longestValidParentheses(String s) {
+        // 使用Stack来做，Time = O(n), Space = O(n)
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
 
+        int res = 0;
+        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+        stack.push(-1);
+
+        for (int i = 0; i &lt; s.length(); i++) {
+            if (s.charAt(i) == &apos;(&apos;) {
+                stack.push(i);
+            } else {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    stack.push(i);
+                } else {
+                    res = Math.max(res, i - stack.peek());
+                }
+            }
+        }
+
+        return res;
+    }
+}
+
+### Method 2:  
+class Solution {
+    public int longestValidParentheses(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+
+        int left = 0;
+        int right = 0;
+        int res = 0;
+
+        // from left direction to right direction
+        for (int i = 0; i &lt; s.length(); i++) {
+            if (s.charAt(i) == &apos;(&apos;) {
+                left++;
+            } else {
+                right++;
+            }
+
+            if (left == right) {
+                res = Math.max(res, 2 * right);
+            } else if (right &gt; left) {
+                // in this case, we can&apos;t form a valid parentheses, we need to reset left and righ to 0
+                left = 0;
+                right = 0;
+            }
+        }
+
+        // reset left and right to 0;
+        left = 0;
+        right = 0;
+
+        // from right to left, same as above
+        for (int i = s.length() - 1; i &gt;= 0; i--) {
+            if (s.charAt(i) == &apos;(&apos;) {
+                left++;
+            } else {
+                right++;
+            }
+
+            if (left == right) {
+                res = Math.max(res, 2 * left);
+            } else if (left &gt; right) {
+                left = 0;
+                right = 0;
+            }
+        }
+
+        return res;
+    }
+}</code></pre><p>&nbsp;  </p>
 
 
         <hr>
@@ -547,7 +625,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#思路解析"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">思路解析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Method-1"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Method 1:</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#思路解析"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">思路解析</span></a></li></ol>
         
         </div>
       </aside>
