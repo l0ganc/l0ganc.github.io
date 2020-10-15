@@ -294,7 +294,7 @@
   <style type="text/css">
     header.intro-header {
        /*post*/
-        background-image: url('https://cdn.jsdelivr.net/gh/l0ganc/l0ganc.github.io/null');
+        background-image: url('https://cdn.jsdelivr.net/gh/l0ganc/l0ganc.github.io/img/header_img/taikongzhen.jpeg');
       
     }
 
@@ -320,6 +320,12 @@
           <div class="post-heading">
             <div class="tags">
               
+              <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+              
+              <a class="tag" href="/tags/#32" title="32">32</a>
+              
+              <a class="tag" href="/tags/#Longest Valid Parentheses" title="Longest Valid Parentheses">Longest Valid Parentheses</a>
+              
             </div>
             <h1>LeetCode 32. Longest Valid Parentheses</h1>
             <h2 class="subheading"></h2>
@@ -333,11 +339,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">0</span> In Total
+              Words <span class="post-count">558</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -397,7 +403,83 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        
+        <p><a href="https://leetcode.com/problems/longest-valid-parentheses/" target="_blank" rel="noopener">32. Longest Valid Parentheses</a></p>
+<p>挺有意思的一道图，虽然标的是hard类型，仔细想想是不难的。 </p>
+<p>Given a string containing just the characters ‘(‘ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.</p>
+<p>Example 1:</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Input:</span> s = <span class="string">"(()"</span></span><br><span class="line"><span class="symbol">Output:</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">Explanation:</span> The longest valid parentheses substring is <span class="string">"()"</span>.</span><br></pre></td></tr></table></figure>
+<p>Example 2:</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Input:</span> s = <span class="string">")()())"</span></span><br><span class="line"><span class="symbol">Output:</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">Explanation:</span> The longest valid parentheses substring is <span class="string">"()()"</span>.</span><br></pre></td></tr></table></figure>
+<p>Example 3:</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Input:</span> s = <span class="string">""</span></span><br><span class="line"><span class="symbol">Output:</span> <span class="number">0</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="symbol">Constraints:</span></span><br></pre></td></tr></table></figure>
+<p>0 &lt;= s.length &lt;= 3 * 104<br>s[i] is ‘(‘, or ‘)’.</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">### 思路解析</span></span><br><span class="line">Every <span class="built_in">time</span> when we seeing a problem which need <span class="keyword">the</span> previous element <span class="keyword">and</span> current element, Stack must be <span class="keyword">the</span> <span class="keyword">first</span> one you should consider. Take this problem <span class="keyword">as</span> an example. It asks <span class="keyword">the</span> logest valid parentheses. We need <span class="keyword">to</span> find <span class="keyword">the</span> longest conbination <span class="keyword">of</span> ```(``` <span class="keyword">and</span> ```)```. We can make use <span class="keyword">of</span> stack <span class="keyword">while</span> scanning <span class="keyword">the</span> <span class="keyword">given</span> <span class="built_in">string</span> <span class="keyword">to</span> check <span class="keyword">if</span> <span class="keyword">the</span> <span class="built_in">string</span> scanned so far <span class="keyword">is</span> valid, <span class="keyword">and</span> also <span class="keyword">the</span> <span class="built_in">length</span> <span class="keyword">of</span> <span class="keyword">the</span> longest valid <span class="built_in">string</span>. First, we need <span class="keyword">to</span> push <span class="number">-1</span> <span class="keyword">onto</span> <span class="keyword">the</span> stack. </span><br><span class="line">For <span class="keyword">every</span> '(' encountered, push <span class="keyword">its</span> index <span class="keyword">onto</span> <span class="keyword">the</span> stack;  </span><br><span class="line">For <span class="keyword">every</span> ')' encountered, pop <span class="keyword">the</span> top element off <span class="keyword">the</span> stack, which gives <span class="keyword">the</span> <span class="built_in">length</span> <span class="keyword">of</span> <span class="keyword">the</span> currently encountered valid <span class="built_in">string</span> <span class="keyword">of</span> parentheses. If <span class="keyword">while</span> popping <span class="keyword">the</span> element, <span class="keyword">the</span> stack becomes empty, we push <span class="keyword">the</span> current element's index <span class="keyword">onto</span> <span class="keyword">the</span> stack. In this way, we keep <span class="keyword">on</span> calculating <span class="keyword">the</span> lengths <span class="keyword">of</span> <span class="keyword">the</span> valid substrings, <span class="keyword">and</span> <span class="literal">return</span> <span class="keyword">the</span> <span class="built_in">length</span> <span class="keyword">of</span> <span class="keyword">the</span> longest valid <span class="built_in">string</span> <span class="keyword">at</span> <span class="keyword">the</span> <span class="keyword">end</span>. </span><br><span class="line"></span><br><span class="line"><span class="comment">### Method 1:</span></span><br></pre></td></tr></table></figure>
+<p>class Solution {<br>    public int longestValidParentheses(String s) {<br>        // 使用Stack来做，Time = O(n), Space = O(n)<br>        if (s == null || s.length() == 0) {<br>            return 0;<br>        }</p>
+<pre><code>    int res = 0;
+    Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+    stack.push(-1);
+
+    for (int i = 0; i &lt; s.length(); i++) {
+        if (s.charAt(i) == &apos;(&apos;) {
+            stack.push(i);
+        } else {
+            stack.pop();
+            if (stack.isEmpty()) {
+                stack.push(i);
+            } else {
+                res = Math.max(res, i - stack.peek());
+            }
+        }
+    }
+
+    return res;
+}</code></pre><p>}</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&amp;nbsp;  </span><br><span class="line"><span class="comment">### Method 2:</span></span><br><span class="line">We could also make <span class="keyword">use</span> <span class="keyword">of</span> two counters leftleft <span class="keyword">and</span> rightright. <span class="keyword">First</span>, we <span class="keyword">start</span> traversing the <span class="keyword">string</span> <span class="keyword">from</span> the <span class="keyword">left</span> towards the <span class="keyword">right</span> <span class="keyword">and</span> <span class="keyword">for</span> every <span class="string">'('</span> encountered, we <span class="keyword">increment</span> the leftleft counter <span class="keyword">and</span> <span class="keyword">for</span> every <span class="string">')'</span> encountered, we <span class="keyword">increment</span> the rightright counter. <span class="keyword">Whenever</span> leftleft becomes equal <span class="keyword">to</span> rightright, we calculate the <span class="keyword">length</span> <span class="keyword">of</span> the <span class="keyword">current</span> valid <span class="keyword">string</span> <span class="keyword">and</span> <span class="keyword">keep</span> track <span class="keyword">of</span> maximum <span class="keyword">length</span> <span class="keyword">substring</span> <span class="keyword">found</span> so far. <span class="keyword">If</span> rightright becomes greater <span class="keyword">than</span> leftleft we <span class="keyword">reset</span> leftleft <span class="keyword">and</span> rightright <span class="keyword">to</span> <span class="number">0.</span></span><br></pre></td></tr></table></figure>
+<p>class Solution {<br>    public int longestValidParentheses(String s) {<br>        if (s == null || s.length() == 0) {<br>            return 0;<br>        }</p>
+<pre><code>    int left = 0;
+    int right = 0;
+    int res = 0;
+
+    // from left direction to right direction
+    for (int i = 0; i &lt; s.length(); i++) {
+        if (s.charAt(i) == &apos;(&apos;) {
+            left++;
+        } else {
+            right++;
+        }
+
+        if (left == right) {
+            res = Math.max(res, 2 * right);
+        } else if (right &gt; left) {
+            // in this case, we can&apos;t form a valid parentheses, we need to reset left and righ to 0
+            left = 0;
+            right = 0;
+        }
+    }
+
+    // reset left and right to 0;
+    left = 0;
+    right = 0;
+
+    // from right to left, same as above
+    for (int i = s.length() - 1; i &gt;= 0; i--) {
+        if (s.charAt(i) == &apos;(&apos;) {
+            left++;
+        } else {
+            right++;
+        }
+
+        if (left == right) {
+            res = Math.max(res, 2 * left);
+        } else if (left &gt; right) {
+            left = 0;
+            right = 0;
+        }
+    }
+
+    return res;
+}</code></pre><p>}<br>```</p>
+
 
         <hr>
         <!-- Pager -->
@@ -556,6 +638,12 @@
             <a href="/tags/">FEATURED TAGS</a>
           </h5>
           <div class="tags">
+            
+            <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+            
+            <a class="tag" href="/tags/#32" title="32">32</a>
+            
+            <a class="tag" href="/tags/#Longest Valid Parentheses" title="Longest Valid Parentheses">Longest Valid Parentheses</a>
             
           </div>
         </section>
