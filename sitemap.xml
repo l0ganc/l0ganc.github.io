@@ -102,6 +102,20 @@
   </url>
   
   <url>
+    <loc>https://l0ganc.github.io/tags/32/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l0ganc.github.io/tags/Longest-Valid-Parentheses/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l0ganc.github.io/tags/34/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
@@ -116,14 +130,7 @@
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/tags/32/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/Longest-Valid-Parentheses/</loc>
+    <loc>https://l0ganc.github.io/tags/Stock/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -152,13 +159,6 @@
   
   <url>
     <loc>https://l0ganc.github.io/tags/%E7%BE%8E%E5%B8%9D%E6%B4%97%E7%89%99/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/Stock/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
