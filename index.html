@@ -210,13 +210,6 @@
 
           
           <li>
-            <a href="/about/">About</a>
-          </li>
-          
-          
-
-          
-          <li>
             <a href="/archive/">Archives</a>
           </li>
           
@@ -224,7 +217,7 @@
 
           
           <li>
-            <a href="/tags/">Tags</a>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -232,6 +225,13 @@
           
           <li>
             <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
           </li>
           
           
@@ -378,6 +378,44 @@
 
       <!-- Main Content -->
 
+
+<div class="post-preview">
+
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+
+  <a href="/2020/10/25/maxResults到底用int还是Integer类型呢/">
+    <h2 class="post-title">
+      maxResults到底用int还是Integer类型呢
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      最近工作上遇到一点小麻烦，记录一下，避免以后踩坑。
+issue hightlight同组一个印度女同事在做一个对现有api的升级改造工作，之前是call api一次返回所有结果。现在是加了一个分页的选项。比如在reqest中加入MaxResults=10，这样调用api的时候就只会返回10个数据而不是全部。这位印度女同事把MaxResults设为int类型而不是它的包装类Integer.我们......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by l0ganic on
+    2020-10-25
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Work" title="Work">Work</a>
+    
+    <a href="/tags/#debug" title="debug">debug</a>
+    
+  </div>
+  
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -704,6 +742,14 @@ hexo deploy...
   <div class="tags">
     
     
+    <a href="/tags/#Work" title="Work" rel="1">Work</a>
+    
+    
+    
+    <a href="/tags/#debug" title="debug" rel="1">debug</a>
+    
+    
+    
     <a href="/tags/#LeetCode" title="LeetCode" rel="2">LeetCode</a>
     
     
@@ -834,6 +880,10 @@ hexo deploy...
 <div class="widget">
   <ul>
     
+    <a href="2020/10/25/maxResults%E5%88%B0%E5%BA%95%E7%94%A8int%E8%BF%98%E6%98%AFInteger%E7%B1%BB%E5%9E%8B%E5%91%A2/">
+      <li>maxResults到底用int还是Integer类型呢</li>
+    </a>
+    
     <a href="2020/10/15/%E4%BA%8C%E5%88%86%E6%B3%95%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%BB%86%E8%8A%82/">
       <li>二分法一个小细节</li>
     </a>
@@ -848,10 +898,6 @@ hexo deploy...
     
     <a href="2020/10/04/%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%94%A8Markdown%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/">
       <li>测试是否可以用Markdown显示图片</li>
-    </a>
-    
-    <a href="2020/10/01/%E6%B5%81%E6%B0%B4%E8%B4%A6/">
-      <li>流水账</li>
     </a>
     
   </ul>
@@ -879,7 +925,7 @@ hexo deploy...
     <!-- <h5>ARCHIVES</h5> -->
     <h5><a href="/archives/">ARCHIVES</a></h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2020/10/">October 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2020/10/">October 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li></ul>
     </div>
 
 
@@ -891,6 +937,10 @@ hexo deploy...
 <h5><a href="/categories/">CATEGORIES</a></h5>
 <div class="widget">
   <ul>
+    
+    <a href="/categories/#工作">
+      <li>工作</li>
+    </a>
     
     <a href="/categories/#刷题">
       <li>刷题</li>

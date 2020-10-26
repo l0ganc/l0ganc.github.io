@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../../css/highlight.css">
-<link rel="stylesheet" href="../../css/widget.css">
-<link rel="stylesheet" href="../../css/rocket.css">
-<link rel="stylesheet" href="../../css/signature.css">
-<link rel="stylesheet" href="../../css/catalog.css">
-<link rel="stylesheet" href="../../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://l0ganc.github.io/categories/日记/">
+  <link rel="canonical" href="https://l0ganc.github.io/2020/10/25/maxResults到底用int还是Integer类型呢/">
   <title>
     
-    l0ganic
+    maxResults到底用int还是Integer类型呢 - l0ganic
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -293,8 +293,8 @@
   <!-- CDN: jsdelivr start -->
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('https://cdn.jsdelivr.net/gh/l0ganc/l0ganc.github.io/undefined');
+       /*post*/
+        background-image: url('https://cdn.jsdelivr.net/gh/l0ganc/l0ganc.github.io/img/header_img/categories_bg.jpg');
       
     }
 
@@ -317,10 +317,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Learn Think Do</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Just do it!</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Work" title="Work">Work</a>
+              
+              <a class="tag" href="/tags/#debug" title="debug">debug</a>
+              
+            </div>
+            <h1>maxResults到底用int还是Integer类型呢</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by l0ganic on
+              2020-10-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">519</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
           </div>
           
         </div>
@@ -361,433 +393,262 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <p>最近工作上遇到一点小麻烦，记录一下，避免以后踩坑。</p>
+<h3 id="issue-hightlight"><a href="#issue-hightlight" class="headerlink" title="issue hightlight"></a>issue hightlight</h3><p>同组一个印度女同事在做一个对现有api的升级改造工作，之前是call api一次返回所有结果。<br>现在是加了一个分页的选项。比如在reqest中加入<code>MaxResults=10</code>，这样调用api的时候就只会返回10个数据而不是全部。<br>这位印度女同事把<code>MaxResults</code>设为<code>int</code>类型而不是它的包装类<code>Integer</code>.<br>我们知道<code>Integer</code>类型的变量是可以为<code>null</code>并且<code>int</code>类型的变量默认值是<code>0</code>.<br>另外，<br>新的api change是under whitelist下的，还没有launch，这就导致即使customer没有在request中声明<code>MaxResults</code>, 但是在<br>后端的request中还是会有<code>MaxResults=0</code>存在。根本原因是<code>0</code>被处理成默认值了。<br>这个bug困扰了好几天，不过好在终于成功定位错误并修复。<br>&nbsp; </p>
+<h3 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h3><ul>
+<li><p>如何处理bug时间缩短一半？<br>多思考，直来直去。既然是默认是是0，那么要想到int型变量的默认值，再想到是哪里设的int类型… 这样可以直观的解决掉问题的根本而不是各种方法调试debug. Debug是思考后要做的事。 </p>
+</li>
+<li><p>配环境过程中遇到的坑要写个runbook给新同事用</p>
+</li>
+</ul>
+<p>&nbsp;  </p>
+<h3 id="今日小结"><a href="#今日小结" class="headerlink" title="今日小结"></a>今日小结</h3><p>下午发完代码又去逛街买衣服啦。西雅图越来越冷，我的屎黄色外套不好看。<br>挑了一圈没找到好看的外套，先不买啦，每周都去逛一下，总归有适合我的。<br>还去耐克店里买了袜子。<br>去Nordstorm看了背包，看好的一款Herschel的包，小小的包110刀，最恶心的是这么好的包侧边的袋口太小了，一个普通大小的水杯都放不进去。<br>瞬间没了购买欲望。<br>回来跟老朋友带了7局台球最后我4：3获胜，然后回来吃了大盘鸡，好饱好饱。还帮袁鸿改了论文摘要。<br>周末结束啦！</p>
+<p>Happy ending!</p>
 
-      
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            10-25
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/10/25/maxResults到底用int还是Integer类型呢/" style="color: #0085a1">
-              <span>
-                maxResults到底用int还是Integer类型呢
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            10-15
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/10/15/二分法一个小细节/" style="color: #0085a1">
-              <span>
-                二分法一个小细节
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            10-14
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/10/14/最近股市感悟/" style="color: #0085a1">
-              <span>
-                最近股市感悟
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            10-14
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/10/14/LeetCode-32-Longest-Valid-Parentheses/" style="color: #0085a1">
-              <span>
-                LeetCode 32. Longest Valid Parentheses
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            10-04
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/10/04/测试是否可以用Markdown显示图片/" style="color: #0085a1">
-              <span>
-                测试是否可以用Markdown显示图片
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            10-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/10/01/流水账/" style="color: #0085a1">
-              <span>
-                流水账
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            09-28
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/09/28/今日杂记/" style="color: #0085a1">
-              <span>
-                今日杂记
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            09-27
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2020/09/27/Wonferful/" style="color: #0085a1">
-              <span>
-                Wonferful
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+          <li class="next">
+            <a href="/2020/10/15/二分法一个小细节/" data-toggle="tooltip" data-placement="top" title="二分法一个小细节">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=maxResults到底用int还是Integer类型呢&body=Hi,I found this website and thought you might like it https://l0ganc.github.io/2020/10/25/maxResults到底用int还是Integer类型呢/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'c5d28080185e66bc641d',
+    clientSecret: '31052a4b9847317da596c1886420f82b7f9d8689',
+    repo: 'l0ganc.github.io',
+    owner: 'l0ganc',
+    admin: 'l0ganc',
+    id: 'Sun Oct 25 2020 22:38:38 GMT-0700', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'en'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
         
-<!-- <h5>VISITORS</h5> -->
-<h5><a href="/">VISITORS</a></h5>
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#issue-hightlight"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">issue hightlight</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#一些思考"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">一些思考</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#今日小结"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">今日小结</span></a></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
-
-<section>
-  <!-- no hr -->
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Work" title="Work" rel="1">Work</a>
-    
-    
-    
-    <a href="/tags/#debug" title="debug" rel="1">debug</a>
-    
-    
-    
-    <a href="/tags/#LeetCode" title="LeetCode" rel="2">LeetCode</a>
-    
-    
-    
-    <a href="/tags/#32" title="32" rel="1">32</a>
-    
-    
-    
-    <a href="/tags/#Longest Valid Parentheses" title="Longest Valid Parentheses" rel="1">Longest Valid Parentheses</a>
-    
-    
-    
-    <a href="/tags/#35" title="35" rel="1">35</a>
-    
-    
-    
-    <a href="/tags/#Search Insert Position" title="Search Insert Position" rel="1">Search Insert Position</a>
-    
-    
-    
-    <a href="/tags/#Stock" title="Stock" rel="1">Stock</a>
-    
-    
-    
-    <a href="/tags/#国庆节" title="国庆节" rel="1">国庆节</a>
-    
-    
-    
-    <a href="/tags/#中秋节" title="中秋节" rel="1">中秋节</a>
-    
-    
-    
-    <a href="/tags/#川建国新冠" title="川建国新冠" rel="1">川建国新冠</a>
-    
-    
-    
-    <a href="/tags/#美帝洗牙" title="美帝洗牙" rel="1">美帝洗牙</a>
-    
-    
-    
-    <a href="/tags/#Test" title="Test" rel="1">Test</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>健身是一辈子的事情</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/l0ganc">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="https://www.instagram.com/jingyi_geng">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="https://www.linkedin.com/in/jingyi-geng">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-      <li>
-        <a target="_blank" href="https://www.zhihu.com/people/Logan">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa  fa-stack-1x fa-inverse">知</i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../2020/10/25/maxResults%E5%88%B0%E5%BA%95%E7%94%A8int%E8%BF%98%E6%98%AFInteger%E7%B1%BB%E5%9E%8B%E5%91%A2/">
-      <li>maxResults到底用int还是Integer类型呢</li>
-    </a>
-    
-    <a href="../../2020/10/15/%E4%BA%8C%E5%88%86%E6%B3%95%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%BB%86%E8%8A%82/">
-      <li>二分法一个小细节</li>
-    </a>
-    
-    <a href="../../2020/10/14/%E6%9C%80%E8%BF%91%E8%82%A1%E5%B8%82%E6%84%9F%E6%82%9F/">
-      <li>最近股市感悟</li>
-    </a>
-    
-    <a href="../../2020/10/14/LeetCode-32-Longest-Valid-Parentheses/">
-      <li>LeetCode 32. Longest Valid Parentheses</li>
-    </a>
-    
-    <a href="../../2020/10/04/%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%94%A8Markdown%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/">
-      <li>测试是否可以用Markdown显示图片</li>
-    </a>
-    
-  </ul>
-</div>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Work" title="Work">Work</a>
+            
+            <a class="tag" href="/tags/#debug" title="debug">debug</a>
+            
+          </div>
+        </section>
+        
 
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<!-- <h5>FRIENDS</h5> -->
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
-        <hr>
-    
         
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">October 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li></ul>
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<!-- <h5>categories</h5> -->
-<h5><a href="/categories/">CATEGORIES</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#工作">
-      <li>工作</li>
-    </a>
-    
-    <a href="/categories/#刷题">
-      <li>刷题</li>
-    </a>
-    
-    <a href="/categories/#日记">
-      <li>日记</li>
-    </a>
-    
-    <a href="/categories/#markdown">
-      <li>markdown</li>
-    </a>
-    
-    <a href="/categories/#test">
-      <li>test</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
@@ -913,7 +774,7 @@
     let jsdelivr = "https://cdn.jsdelivr.net/gh/";
     let gh = "l0ganc";
     let ghPages = gh + ".github.io";
-    let pagePath = "categories/日记/index.html";
+    let pagePath = "2020/10/25/maxResults到底用int还是Integer类型呢/";
     let jsdelivrurl;
     if (pagePath.indexOf("index.html") != -1) {
       jsdelivrurl = jsdelivr + gh + "/" + ghPages;

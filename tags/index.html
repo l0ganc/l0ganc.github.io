@@ -210,13 +210,6 @@
 
           
           <li>
-            <a href="/about/">About</a>
-          </li>
-          
-          
-
-          
-          <li>
             <a href="/archive/">Archives</a>
           </li>
           
@@ -224,7 +217,7 @@
 
           
           <li>
-            <a href="/tags/">Tags</a>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -232,6 +225,13 @@
           
           <li>
             <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
           </li>
           
           
@@ -368,6 +368,10 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
+        <a href="#Work" title="Work" rel="1">Work</a>
+        
+        <a href="#debug" title="debug" rel="1">debug</a>
+        
         <a href="#LeetCode" title="LeetCode" rel="2">LeetCode</a>
         
         <a href="#32" title="32" rel="1">32</a>
@@ -393,6 +397,50 @@
       </div>
 
       <!-- 标签列表 -->
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Work">
+          <span class="tag-text">Work</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/2020/10/25/maxResults到底用int还是Integer类型呢/">
+            <h2 class="post-title">
+              maxResults到底用int还是Integer类型呢
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="debug">
+          <span class="tag-text">debug</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/2020/10/25/maxResults到底用int还是Integer类型呢/">
+            <h2 class="post-title">
+              maxResults到底用int还是Integer类型呢
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
       
       <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="LeetCode">

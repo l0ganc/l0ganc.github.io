@@ -210,13 +210,6 @@
 
           
           <li>
-            <a href="/about/">About</a>
-          </li>
-          
-          
-
-          
-          <li>
             <a href="/archive/">Archives</a>
           </li>
           
@@ -224,7 +217,7 @@
 
           
           <li>
-            <a href="/tags/">Tags</a>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -232,6 +225,13 @@
           
           <li>
             <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
           </li>
           
           
@@ -368,6 +368,8 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
+        <a href="#工作" title="工作" rel="1">工作</a>
+        
         <a href="#刷题" title="刷题" rel="2">刷题</a>
         
         <a href="#日记" title="日记" rel="2">日记</a>
@@ -379,6 +381,28 @@
       </div>
 
       <!-- 标签列表 -->
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="工作">
+          <span class="tag-text">工作</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/2020/10/25/maxResults到底用int还是Integer类型呢/">
+            <h2 class="post-title">
+              maxResults到底用int还是Integer类型呢
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
       
       <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="刷题">
