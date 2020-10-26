@@ -102,20 +102,6 @@
 
   
   <url>
-    <loc>https://l0ganc.github.io/tags/Work/</loc>
-    <lastmod>2020-10-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/debug/</loc>
-    <lastmod>2020-10-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://l0ganc.github.io/tags/LeetCode/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
@@ -137,6 +123,20 @@
   </url>
   
   <url>
+    <loc>https://l0ganc.github.io/tags/Work/</loc>
+    <lastmod>2020-10-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l0ganc.github.io/tags/debug/</loc>
+    <lastmod>2020-10-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l0ganc.github.io/tags/35/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
@@ -152,6 +152,13 @@
   
   <url>
     <loc>https://l0ganc.github.io/tags/Stock/</loc>
+    <lastmod>2020-10-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l0ganc.github.io/tags/Test/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -185,24 +192,17 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://l0ganc.github.io/tags/Test/</loc>
-    <lastmod>2020-10-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://l0ganc.github.io/categories/%E5%B7%A5%E4%BD%9C/</loc>
+    <loc>https://l0ganc.github.io/categories/%E5%88%B7%E9%A2%98/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/categories/%E5%88%B7%E9%A2%98/</loc>
+    <loc>https://l0ganc.github.io/categories/%E5%B7%A5%E4%BD%9C/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
