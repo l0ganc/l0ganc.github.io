@@ -210,6 +210,13 @@
 
           
           <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
             <a href="/about/">About</a>
           </li>
           
@@ -218,13 +225,6 @@
           
           <li>
             <a href="/archive/">Archives</a>
-          </li>
-          
-          
-
-          
-          <li>
-            <a href="/categories/">Categories</a>
           </li>
           
           
@@ -343,7 +343,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">475</span> In Total
+              Words <span class="post-count">481</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -409,7 +409,7 @@
 <h3 id="思路解析"><a href="#思路解析" class="headerlink" title="思路解析"></a>思路解析</h3><p>本题需要返回跳到最后index所需要的最小的步数。<br>看到这种前一个状态后一个状态的题，最先要跟面试官提出的就是dp的思想。本体很明显后一个jump的状态是跟前一个jump有关系的。  </p>
 <p>首先需要初始化一个res[nums.length]的数组用来存结果，表示跳到当前index的位置所需要的最小步数。  </p>
 <p>dp核心方程: </p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">如果当前index可达: </span><br><span class="line">   如果res[i]=<span class="number">0</span>, 那么要跳到当前位置需要上一个状态+<span class="number">1</span></span><br><span class="line">   如果res[i]!=<span class="number">0</span>, 说明已经有其他种跳法可以跳到当前位置，这时候就需要比较取最小步数[res[i], res[j]+<span class="number">1</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">好了，直接上代码跟例子:</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">如果当前index可达: </span><br><span class="line">   如果res[i]=<span class="number">0</span>, 那么要跳到当前位置需要上一个状态+<span class="number">1</span></span><br><span class="line">   如果res[i]!=<span class="number">0</span>, 说明已经有其他种跳法可以跳到当前位置，这时候就需要比较取最小步数[res[i], res[j]+<span class="number">1</span>]</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&amp;nbsp;  </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">好了，直接上代码跟例子:</span></span><br></pre></td></tr></table></figure>
 <p>public int jump(int[] nums) {<br>        int[] res = new int[nums.length];</p>
 <pre><code>    /*
     dp，比较简单, 就是会超时
@@ -431,7 +431,7 @@ for (int i = 1; i &lt; nums.length; i++) {
         }
     }
 }
-return res[nums.length - 1];</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">值得注意的是，这种dp的方法在leetcode上是超时的。但是在面试过程中，</span><br><span class="line">我认为如果能很好的讲出这种方法，这轮面试就可以过了。  </span><br><span class="line"></span><br><span class="line">另外一种可以过leetcode的方法：</span><br></pre></td></tr></table></figure>
+return res[nums.length - 1];</code></pre><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&amp;nbsp;  </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">值得注意的是，这种dp的方法在leetcode上是超时的。但是在面试过程中，</span><br><span class="line">我认为如果能很好的讲出这种方法，这轮面试就可以过了。   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">另外一种可以过leetcode的方法:</span><br></pre></td></tr></table></figure>
 <p>public int jump(int[] nums) {<br>        int last = 0;   // 记录上一跳能到达的最远距离<br>        int cur = 0;    // 记录当前一跳能到达的最远距离<br>        int res = 0;    // 结果步数</p>
 <pre><code>for (int i = 0; i &lt; nums.length; i++) {
     if (i &gt; cur) {
@@ -447,7 +447,9 @@ return res[nums.length - 1];</code></pre><figure class="highlight"><table><tr><t
 }
 
 return res;</code></pre><p>}</p>
-<pre><code></code></pre>
+<pre><code>
+&amp;nbsp; 
+</code></pre>
 
         <hr>
         <!-- Pager -->

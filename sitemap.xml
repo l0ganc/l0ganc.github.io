@@ -151,6 +151,13 @@
   </url>
   
   <url>
+    <loc>https://l0ganc.github.io/tags/Github-Search/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l0ganc.github.io/tags/32/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
@@ -165,21 +172,14 @@
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/tags/Github-Search/</loc>
+    <loc>https://l0ganc.github.io/tags/Work/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/tags/%E6%8B%89%E5%B8%83%E6%8B%89%E5%A4%9A/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/%E7%8B%97%E7%8B%97/</loc>
+    <loc>https://l0ganc.github.io/tags/debug/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -214,28 +214,21 @@
   </url>
   
   <url>
+    <loc>https://l0ganc.github.io/tags/%E6%8B%89%E5%B8%83%E6%8B%89%E5%A4%9A/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l0ganc.github.io/tags/%E7%8B%97%E7%8B%97/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://l0ganc.github.io/tags/Stock/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/Test/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/Work/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/tags/debug/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -269,6 +262,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://l0ganc.github.io/tags/Test/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -286,7 +286,7 @@
   </url>
   
   <url>
-    <loc>https://l0ganc.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://l0ganc.github.io/categories/%E5%B7%A5%E4%BD%9C/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -294,6 +294,13 @@
   
   <url>
     <loc>https://l0ganc.github.io/categories/Life/</loc>
+    <lastmod>2020-12-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l0ganc.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -315,13 +322,6 @@
   
   <url>
     <loc>https://l0ganc.github.io/categories/%E7%94%9F%E6%B4%BB/life/</loc>
-    <lastmod>2020-12-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://l0ganc.github.io/categories/%E5%B7%A5%E4%BD%9C/</loc>
     <lastmod>2020-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
