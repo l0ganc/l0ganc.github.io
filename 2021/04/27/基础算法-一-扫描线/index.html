@@ -210,13 +210,6 @@
 
           
           <li>
-            <a href="/categories/">Categories</a>
-          </li>
-          
-          
-
-          
-          <li>
             <a href="/archive/">Archives</a>
           </li>
           
@@ -232,6 +225,13 @@
           
           <li>
             <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
           </li>
           
           
@@ -339,7 +339,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1</span> In Total
+              Words <span class="post-count">293</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -399,7 +399,14 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>test</p>
+        <h3 id="经典扫描线题：数飞机"><a href="#经典扫描线题：数飞机" class="headerlink" title="经典扫描线题：数飞机"></a>经典扫描线题：数飞机</h3><p>Description<br>Given an list interval, which are taking off and landing time of the flight. How many airplanes are there at most at the same time in the sky?</p>
+<p>If landing and taking off of different planes happen at the same time, we consider landing should happen at first.</p>
+<p>Example<br>Example 1:</p>
+<p>Input: [(1, 10), (2, 3), (5, 8), (4, 7)]<br>Output: 3<br>Explanation:<br>The first airplane takes off at 1 and lands at 10.<br>The second ariplane takes off at 2 and lands at 3.<br>The third ariplane takes off at 5 and lands at 8.<br>The forth ariplane takes off at 4 and lands at 7.<br>During 5 to 6, there are three airplanes in the sky.<br>Example 2:</p>
+<p>Input: [(1, 2), (2, 3), (3, 4)]<br>Output: 1<br>Explanation: Landing happen before taking off.</p>
+<p>&nbsp;<br><a href="https://www.lintcode.com/problem/391/" target="_blank" rel="noopener">https://www.lintcode.com/problem/391/</a></p>
+<p>&nbsp;  </p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition of Interval:</span></span><br><span class="line"><span class="comment"> * public classs Interval &#123;</span></span><br><span class="line"><span class="comment"> *     int start, end;</span></span><br><span class="line"><span class="comment"> *     Interval(int start, int end) &#123;</span></span><br><span class="line"><span class="comment"> *         this.start = start;</span></span><br><span class="line"><span class="comment"> *         this.end = end;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="symbol">Solution</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * @param airplanes: An interval array</span></span><br><span class="line"><span class="comment">     * @return: Count of airplanes are in the sky.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> countOfAirplanes(List&lt;Interval&gt; airplanes) &#123;</span><br><span class="line">        <span class="comment">// sweep line扫描线法</span></span><br><span class="line">        List&lt;<span class="built_in">int</span>[]&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Interval <span class="built_in">int</span>erval : airplanes) &#123;</span><br><span class="line">            list.add(new <span class="built_in">int</span>[]&#123;<span class="built_in">int</span>erval.start, <span class="number">1</span>&#125;);</span><br><span class="line">            list.add(new <span class="built_in">int</span>[]&#123;<span class="built_in">int</span>erval.end, <span class="number">-1</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Collections.sort(list, (a, b) -&gt; a[<span class="number">0</span>] == b[<span class="number">0</span>] ? a[<span class="number">1</span>] - b[<span class="number">1</span>] : a[<span class="number">0</span>] - b[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 进行扫描</span></span><br><span class="line">        <span class="built_in">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span>[] cur : list) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur[<span class="number">1</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                count--;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            res = Math.max(res, count);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         <hr>
@@ -538,7 +545,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#经典扫描线题：数飞机"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">经典扫描线题：数飞机</span></a></li></ol>
         
         </div>
       </aside>
