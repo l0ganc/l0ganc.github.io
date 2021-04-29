@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://l0ganc.github.io/2020/10/04/测试是否可以用Markdown显示图片/">
+  <link rel="canonical" href="https://l0ganc.github.io/2021/04/28/基础算法-二-BFS/">
   <title>
     
-    测试是否可以用Markdown显示图片 - l0ganic
+    基础算法(二) - BFS - l0ganic
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -294,7 +294,7 @@
   <style type="text/css">
     header.intro-header {
        /*post*/
-        background-image: url('https://cdn.jsdelivr.net/gh/l0ganc/l0ganc.github.io/img/header_img/taikongzhen.jpeg');
+        background-image: url('https://cdn.jsdelivr.net/gh/l0ganc/l0ganc.github.io/img/header_img/categories_bg.jpg');
       
     }
 
@@ -320,14 +320,14 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#Test" title="Test">Test</a>
+              <a class="tag" href="/tags/#宽度优先" title="宽度优先">宽度优先</a>
               
             </div>
-            <h1>测试是否可以用Markdown显示图片</h1>
+            <h1>基础算法(二) - BFS</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by l0ganic on
-              2020-10-04
+              2021-04-28
             </span>
 
 
@@ -339,7 +339,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">11</span> In Total
+              Words <span class="post-count">345</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -399,20 +399,24 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>使用语法插入一张图片：<br><a href="https://tva1.sinaimg.cn/large/007S8ZIlly1gj7hp9vjgtj317j0u0qcs.jpg" target="_blank" rel="noopener">loan</a><br><img src="https://photos.google.com/share/AF1QipOEXysy6TKPnIEh0ufPlzn8cMmKPoeaHiQ8GjUkDYd4n0CBV34Qp_MgJqTRg5xSeA/photo/AF1QipMfdSZGUgfetjb9Re37XA9OysherpzcgnslMkkT?key=X2I1d3ZCWHB6OVRzMEprS1FMcWJuME8yankyd3JR" alt="loan"></p>
+        <h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><p>面试常考题型,  用来搜索最短路径的解是比较合适的。比如:</p>
+<ul>
+<li>求最少步数的解</li>
+<li>最少交换次数的解<br>另外, BFS搜索过程中遇到的解一定是离根最近的。</li>
+</ul>
+<p>&nbsp;<br>BFS可以想象为在一个平静的湖面，你突然在岸边抛出一块石头下去，想象出那种一石激起千层浪、一波接一波从中心向外扩散的画面。在实际算法中，用的是Queue这一结构，首先把起始节点加进来，然后每次从Queue中依次poll出这一层的节点，然后处理当前节点并将下一层的节点再加到Queue，直到Queue为空。</p>
+<p>&nbsp;<br>代表题型如下，要熟读并背诵，O(1)时间给出解!</p>
+<p><a href="https://leetcode.com/problems/binary-tree-right-side-view/" target="_blank" rel="noopener">Binary Tree Right Side View</a>  </p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>Definition for </span>a<span class="markdown"> binary tree node.</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>public class TreeNode &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>int val;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>TreeNode left;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>TreeNode right;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>TreeNode() &#123;&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>TreeNode(int val) &#123; this.val = val; &#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>this.val = val;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>this.left = left;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>this.right = right;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// BFS</span></span><br><span class="line">    public <span class="built_in">List</span>&lt;Integer&gt; rightSideView(TreeNode root) &#123;</span><br><span class="line">        <span class="built_in">List</span>&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="built_in">int</span> size = queue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                TreeNode cur = queue.poll();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (i == size - <span class="number">1</span>) res.add(cur.val);</span><br><span class="line">                <span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) queue.offer(cur.left);</span><br><span class="line">                <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) queue.offer(cur.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/2020/10/14/LeetCode-32-Longest-Valid-Parentheses/" data-toggle="tooltip" data-placement="top" title="LeetCode 32. Longest Valid Parentheses">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/2020/10/01/流水账/" data-toggle="tooltip" data-placement="top" title="流水账">Next Post &rarr;</a>
+            <a href="/2021/04/27/基础算法-一-扫描线/" data-toggle="tooltip" data-placement="top" title="基础算法(一) -- 扫描线">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -455,7 +459,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=测试是否可以用Markdown显示图片&body=Hi,I found this website and thought you might like it https://l0ganc.github.io/2020/10/04/测试是否可以用Markdown显示图片/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=基础算法(二) - BFS&body=Hi,I found this website and thought you might like it https://l0ganc.github.io/2021/04/28/基础算法-二-BFS/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -488,7 +492,7 @@
     repo: 'l0ganc.github.io',
     owner: 'l0ganc',
     admin: 'l0ganc',
-    id: 'Sun Oct 04 2020 20:48:50 GMT-0700', // Ensure uniqueness and length less than 50
+    id: 'Wed Apr 28 2021 22:58:49 GMT-0700', // Ensure uniqueness and length less than 50
     distractionFreeMode: false, // Facebook-like distraction free mode
     perPage: 10 ,
     pagerDirection: 'last',
@@ -542,7 +546,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#BFS"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">BFS</span></a></li></ol>
         
         </div>
       </aside>
@@ -564,7 +568,7 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#Test" title="Test">Test</a>
+            <a class="tag" href="/tags/#宽度优先" title="宽度优先">宽度优先</a>
             
           </div>
         </section>
@@ -764,7 +768,7 @@
     let jsdelivr = "https://cdn.jsdelivr.net/gh/";
     let gh = "l0ganc";
     let ghPages = gh + ".github.io";
-    let pagePath = "2020/10/04/测试是否可以用Markdown显示图片/";
+    let pagePath = "2021/04/28/基础算法-二-BFS/";
     let jsdelivrurl;
     if (pagePath.indexOf("index.html") != -1) {
       jsdelivrurl = jsdelivr + gh + "/" + ghPages;
